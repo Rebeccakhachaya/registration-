@@ -9,5 +9,5 @@ data class Regirationrequest(
     var nationality:String,
     var password:String,
     @SerializedName("phone_number")var phoneNumber:String,
-//    @SerializedName("student_id") var studentId:String
+  @SerializedName("student_id") var studentId:String
 )

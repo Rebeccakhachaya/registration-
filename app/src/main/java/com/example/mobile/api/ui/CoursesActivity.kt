@@ -1,11 +1,14 @@
-    package com.example.mobile
+    package com.example.mobile.api.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.mobile.Courses
+import com.example.mobile.R
+import com.example.mobile.coursesAdapter
 
-class coursesActivity : AppCompatActivity() {
+    class coursesActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_courses)
@@ -18,7 +21,7 @@ class coursesActivity : AppCompatActivity() {
 
 
         )
-        var coursesAdapter=coursesAdapter(courseList)
+        var coursesAdapter= coursesAdapter(courseList)
         rvcourses.layoutManager=LinearLayoutManager(baseContext)
         rvcourses.adapter=coursesAdapter
 

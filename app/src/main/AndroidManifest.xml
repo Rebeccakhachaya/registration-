@@ -15,7 +15,7 @@
         android:theme="@style/Theme.MOBILE"
         tools:targetApi="m">
         <activity android:name=".loginActivity"></activity>
-        <activity android:name=".coursesActivity" />
+        <activity android:name=".api.ui.coursesActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

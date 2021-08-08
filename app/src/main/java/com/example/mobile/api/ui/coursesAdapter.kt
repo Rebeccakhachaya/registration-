@@ -5,7 +5,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.material.textfield.TextInputLayout
 
 class coursesAdapter(var courseList:List<Courses>):RecyclerView.Adapter<CoursesViewHolder> (){
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CoursesViewHolder {
@@ -30,8 +29,8 @@ class CoursesViewHolder(itemView: View):RecyclerView.ViewHolder(itemView){
     var tvdescription=itemView.findViewById<TextView>(R.id.tvdescription)
     var tvinstructor=itemView.findViewById<TextView>(R.id.tvinstructor)
     var tvcode=itemView.findViewById<TextView>(R.id.tvcode)
-    var name=itemView.findViewById<TextInputLayout>(R.id.etName)
-    var email=itemView.findViewById<TextInputLayout>(R.id.etEmail)
+//    var name=itemView.findViewById<TextInputLayout>(R.id.etName)
+//    var email=itemView.findViewById<TextInputLayout>(R.id.etEmail)
 
 
 
