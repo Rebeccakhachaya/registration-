@@ -25,7 +25,7 @@ class loginActivity : AppCompatActivity() {
                 binding.etlogemail.text.toString(),
                 binding.etlogpassword.text.toString()
             )
-            loginViewModel.logIn(loginRequest)
+            loginViewModel.loginStudent(loginRequest)
 
         }
 
@@ -39,7 +39,7 @@ class loginActivity : AppCompatActivity() {
             sharedPreferences.edit().putString("ACCESS_TOKEN", accessToken).apply()
             var x = sharedPreferences.getString("ACCESS_TOKEN", "")
         })
-        LoginViewModel.loginFailedLiveData.observe(this, { error ->
+        loginViewModel.logInFailedLiveData.observe(this, { error ->
             Toast.makeText(baseContext, error, Toast.LENGTH_LONG).show()
         })
     }

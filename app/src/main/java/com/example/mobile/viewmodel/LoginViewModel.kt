@@ -6,24 +6,22 @@ import com.example.mobile.models.LoginRequest
 import com.example.mobile.models.LoginResponce
 import com.example.mobile.repository.UserRepository
 
-class LoginViewModel:ViewModel (){
+class LoginViewModel:ViewModel () {
     var logInLiveData = MutableLiveData<LoginResponce>()
     var logInFailedLiveData = MutableLiveData<String>()
     var userRepository = UserRepository()
 
-    fun logIn( loginRequest: LoginRequest){
-
-
+    fun loginStudent(loginRequest: LoginRequest) {
         viewModelScope.launch {
-            var response = userRepository.login(loginRequest)
-            if (response.isSuccessful){
-                logInLiveData.postValue(response.body())
-            }
-            else{
+            val response = userRepository.loginstudent(loginRequest)
+            if (response.isSucceful) {
+                logInLiveData.postValue(response.body)
+            } else {
                 logInFailedLiveData.postValue(response.errorBody()?.string())
             }
         }
     }
-
-
 }
+
+
+

@@ -6,14 +6,14 @@ import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.example.mobile.databinding.ActivityMainBinding
-import com.example.mobile.models.Regirationrequest
+import com.example.mobile.models.RegistrationRequest
 import com.example.mobile.models.RegistrationResponce
 import com.example.mobile.viewmodel.UserViewModel
 
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityMainBinding
-    private val userViewModel: UserViewModel by viewModels()
+     lateinit var binding: ActivityMainBinding
+     val userViewModel: UserViewModel by viewModels()
 
     @SuppressLint("WrongViewCast")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,34 +21,45 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-
     }
-
     override fun onResume() {
         super.onResume()
         binding.btnBUTTON.setOnClickListener {
-            var regRequest = RegistrationResponce(
-                name = binding.etName.toString(),
-                phoneNumber = binding.etPhone.text.toString(),
-                email = binding.etEmail.toString(),
-                dob = binding.etDob.text.toString(),
-                password = binding.etPassword.text.toString(),
+        }
+        fun registerStudent() {
+            var name = binding.etName.toString()
+            var phoneNumber = binding.etPhone.text.toString()
+            var email = binding.etEmail.toString()
+            var dob = binding.etDob.text.toString()
+            var password = binding.etPassword.text.toString()
+            var registrationRequest = RegistrationRequest(
+                name = name,
+                phoneNumber = phoneNumber,
+                email = email,
+                dob = dob,
+                password = password,
 
-            )
-            userViewModel.registerStudent(regRequest)
+
         }
         userViewModel.registrationLiveData.observe(this, { regResponse->
-            if (!regResponse.studentId.isNullOrEmpty()){
-                Toast.makeText(baseContext, "Registration successful", Toast.LENGTH_LONG).show()
-            }
-        })
-        userViewModel.registrationLiveData.observe(this, { error->
-            Toast.makeText(baseContext, error, Toast.LENGTH_LONG).show()
-        })
-    }
+                    if (!regResponse.password.isNullOrEmpty()){
+                        Toast.makeText(baseContext, "Registration successful", Toast.LENGTH_LONG).show()
+                    }
+                })
+                        userViewModel.registrationLiveData.observe(this, { error->
+                            Toast.makeText(baseContext, "Registration failed ", Toast.LENGTH_LONG).show()
+
+
+                        })
+        }
+
+
+
 
 }
+
+
+
 
 
 
