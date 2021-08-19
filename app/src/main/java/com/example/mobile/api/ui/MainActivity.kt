@@ -1,6 +1,7 @@
 package com.example.mobile
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.viewModels
@@ -21,6 +22,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
     }
     override fun onResume() {
         super.onResume()
@@ -41,6 +43,7 @@ class MainActivity : AppCompatActivity() {
 
 
         }
+
         userViewModel.registrationLiveData.observe(this, { regResponse->
                     if (!regResponse.password.isNullOrEmpty()){
                         Toast.makeText(baseContext, "Registration successful", Toast.LENGTH_LONG).show()
@@ -50,13 +53,12 @@ class MainActivity : AppCompatActivity() {
                             Toast.makeText(baseContext, "Registration failed ", Toast.LENGTH_LONG).show()
 
 
-                        })
-        }
+                        }) }
 
-
-
+    }
 
 }
+
 
 
 

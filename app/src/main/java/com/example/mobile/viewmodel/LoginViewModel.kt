@@ -13,9 +13,9 @@ class LoginViewModel:ViewModel () {
 
     fun loginStudent(loginRequest: LoginRequest) {
         viewModelScope.launch {
-            val response = userRepository.loginstudent(loginRequest)
-            if (response.isSucceful) {
-                logInLiveData.postValue(response.body)
+            val response = userRepository.loginStudent(loginRequest)
+            if (response.isSuccessful) {
+                logInLiveData.postValue(response.body())
             } else {
                 logInFailedLiveData.postValue(response.errorBody()?.string())
             }

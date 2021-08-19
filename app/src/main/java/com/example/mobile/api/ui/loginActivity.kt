@@ -26,18 +26,24 @@ class loginActivity : AppCompatActivity() {
                 binding.etlogpassword.text.toString()
             )
             loginViewModel.loginStudent(loginRequest)
-
         }
 
     }
 
     override fun onResume() {
         super.onResume()
+
         loginViewModel.logInLiveData.observe(this, { LoginResponce ->
             Toast.makeText(baseContext, LoginResponce.message, Toast.LENGTH_LONG).show()
+            var editor=sharedPreferences.edit()
+            editor.putString("ACCESS_TOKEN",LoginResponce.access_token).apply()
+            editor.putString("ACCESS_TOKEN",LoginResponce.access_token).apply()
+            editor.apply()
+
             var accessToken = null
-            sharedPreferences.edit().putString("ACCESS_TOKEN", accessToken).apply()
+            sharedPreferences.edit().putString("ACCESS_TOKEN",LoginResponce.access_token).apply()
             var x = sharedPreferences.getString("ACCESS_TOKEN", "")
+
         })
         loginViewModel.logInFailedLiveData.observe(this, { error ->
             Toast.makeText(baseContext, error, Toast.LENGTH_LONG).show()
@@ -45,22 +51,6 @@ class loginActivity : AppCompatActivity() {
     }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

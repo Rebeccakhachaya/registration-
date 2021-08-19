@@ -16,6 +16,7 @@ interface ApiInterface {
         suspend fun loginStudent(@Body loginRequest: LoginRequest): Response<LoginResponce>
         @GET("/login")
 
+
 }
 
 

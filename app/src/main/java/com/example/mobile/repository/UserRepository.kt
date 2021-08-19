@@ -20,7 +20,8 @@ class UserRepository {
     suspend fun loginStudent(loginRequest: LoginRequest):
             Response<LoginResponce> =
         withContext(Dispatchers.IO) {
-            return@withContext ApiClient.api.loginStudent(loginRequest)
+            var response=apiInterface.loginStudent(loginRequest)
+           return@withContext response
         }
 }
 
