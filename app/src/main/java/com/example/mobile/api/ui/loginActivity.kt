@@ -56,6 +56,18 @@ class loginActivity : AppCompatActivity() {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 //    fun clickRegister() {
 //        var error = false
 //        btnlogin.setOnClickListener {

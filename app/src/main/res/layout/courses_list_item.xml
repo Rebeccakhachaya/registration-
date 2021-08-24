@@ -83,5 +83,17 @@
             app:layout_constraintStart_toEndOf="@+id/textView6"
             app:layout_constraintTop_toBottomOf="@+id/tvinstructor" />
 
+        <Button
+            android:id="@+id/btnenrol"
+            android:layout_width="68dp"
+            android:layout_height="41dp"
+            android:layout_marginStart="60dp"
+            android:layout_marginTop="150dp"
+            android:layout_marginEnd="155dp"
+            android:text="Enrol"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tvcode"
+            app:layout_constraintTop_toTopOf="parent" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>
